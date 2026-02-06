@@ -1,0 +1,1096 @@
+<html lang="id"><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/content/location/location.js" id="eppiocemhmnlbhjplcgkofciiegomcon"></script><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/libs/extend-native-history-api.js"></script><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/libs/requests.js"></script><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WAYAE. AUTO</title>
+    <link rel="icon" href="/static/images/favicon.ico">
+
+    <script src="https://cdn.tailwindcss.com"></script><script bis_use="true" type="text/javascript" charset="utf-8" data-bis-config="[&quot;facebook.com/&quot;,&quot;twitter.com/&quot;,&quot;youtube-nocookie.com/embed/&quot;,&quot;//vk.com/&quot;,&quot;//www.vk.com/&quot;,&quot;linkedin.com/&quot;,&quot;//www.linkedin.com/&quot;,&quot;//instagram.com/&quot;,&quot;//www.instagram.com/&quot;,&quot;//www.google.com/recaptcha/api2/&quot;,&quot;//hangouts.google.com/webchat/&quot;,&quot;//www.google.com/calendar/&quot;,&quot;//www.google.com/maps/embed&quot;,&quot;spotify.com/&quot;,&quot;soundcloud.com/&quot;,&quot;//player.vimeo.com/&quot;,&quot;//disqus.com/&quot;,&quot;//tgwidget.com/&quot;,&quot;//js.driftt.com/&quot;,&quot;friends2follow.com&quot;,&quot;/widget&quot;,&quot;login&quot;,&quot;//video.bigmir.net/&quot;,&quot;blogger.com&quot;,&quot;//smartlock.google.com/&quot;,&quot;//keep.google.com/&quot;,&quot;/web.tolstoycomments.com/&quot;,&quot;moz-extension://&quot;,&quot;chrome-extension://&quot;,&quot;/auth/&quot;,&quot;//analytics.google.com/&quot;,&quot;adclarity.com&quot;,&quot;paddle.com/checkout&quot;,&quot;hcaptcha.com&quot;,&quot;recaptcha.net&quot;,&quot;2captcha.com&quot;,&quot;accounts.google.com&quot;,&quot;www.google.com/shopping/customerreviews&quot;,&quot;buy.tinypass.com&quot;,&quot;gstatic.com&quot;,&quot;secureir.ebaystatic.com&quot;,&quot;docs.google.com&quot;,&quot;contacts.google.com&quot;,&quot;github.com&quot;,&quot;mail.google.com&quot;,&quot;chat.google.com&quot;,&quot;audio.xpleer.com&quot;,&quot;keepa.com&quot;,&quot;static.xx.fbcdn.net&quot;,&quot;sas.selleramp.com&quot;,&quot;1plus1.video&quot;,&quot;console.googletagservices.com&quot;,&quot;//lnkd.demdex.net/&quot;,&quot;//radar.cedexis.com/&quot;,&quot;//li.protechts.net/&quot;,&quot;challenges.cloudflare.com/&quot;,&quot;ogs.google.com&quot;]" data-dynamic-id="e700b818-6484-4d1f-8ad3-77e5c369e7de" src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/executors/traffic.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'lime-brand': '#C6FF00'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui'],
+                        teko: ['Teko', 'system-ui'],
+                        anton: ['Anton', 'system-ui'],
+                        rajdhani: ['Rajdhani', 'system-ui'],
+                        sora: ['Sora', 'system-ui']
+                    },
+                    animation: {
+                        // Nama class: 'nama-keyframe durasi tipe loop'
+                        marquee: 'marquee 30s linear infinite',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        html, body {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            max-width: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Opsional: Scrollbar custom agar lebih rapi di desktop */
+        ::-webkit-scrollbar {
+            width: 5px; /* Lebar vertikal */
+            height: 5px; /* Tinggi horizontal */
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; /* Warna latar belakang scrollbar */
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #888; /* Warna thumb scrollbar */
+            border-radius: 5px; /* Bentuk thumb */
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555; /* Warna thumb saat hover */
+        }
+
+    </style>
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/dark.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:Inter, system-ui;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.container{width:100%}@media (min-width: 640px){.container{max-width:640px}}@media (min-width: 768px){.container{max-width:768px}}@media (min-width: 1024px){.container{max-width:1024px}}@media (min-width: 1280px){.container{max-width:1280px}}@media (min-width: 1536px){.container{max-width:1536px}}.pointer-events-none{pointer-events:none}.invisible{visibility:hidden}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.-bottom-10{bottom:-2.5rem}.-bottom-6{bottom:-1.5rem}.-left-6{left:-1.5rem}.-right-20{right:-5rem}.-right-6{right:-1.5rem}.-top-20{top:-5rem}.-top-6{top:-1.5rem}.bottom-0{bottom:0px}.left-0{left:0px}.left-6{left:1.5rem}.right-0{right:0px}.top-0{top:0px}.-z-10{z-index:-10}.z-0{z-index:0}.z-10{z-index:10}.z-20{z-index:20}.z-30{z-index:30}.z-50{z-index:50}.order-1{order:1}.order-2{order:2}.order-3{order:3}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-12{margin-bottom:3rem}.mb-16{margin-bottom:4rem}.mb-2{margin-bottom:0.5rem}.mb-20{margin-bottom:5rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.ml-1{margin-left:0.25rem}.mt-10{margin-top:2.5rem}.mt-2{margin-top:0.5rem}.mt-4{margin-top:1rem}.mt-5{margin-top:1.25rem}.mt-8{margin-top:2rem}.line-clamp-2{overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.aspect-\[4\/3\]{aspect-ratio:4/3}.aspect-video{aspect-ratio:16 / 9}.h-12{height:3rem}.h-24{height:6rem}.h-40{height:10rem}.h-5{height:1.25rem}.h-6{height:1.5rem}.h-80{height:20rem}.h-\[600px\]{height:600px}.h-\[6vw\]{height:6vw}.h-auto{height:auto}.h-full{height:100%}.min-h-screen{min-height:100vh}.w-1\.5{width:0.375rem}.w-12{width:3rem}.w-24{width:6rem}.w-3{width:0.75rem}.w-40{width:10rem}.w-5{width:1.25rem}.w-6{width:1.5rem}.w-\[60\%\]{width:60%}.w-full{width:100%}.max-w-2xl{max-width:42rem}.max-w-6xl{max-width:72rem}.max-w-7xl{max-width:80rem}.flex-1{flex:1 1 0%}.flex-shrink-0{flex-shrink:0}.shrink-0{flex-shrink:0}.flex-grow{flex-grow:1}.translate-y-4{--tw-translate-y:1rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.translate-y-\[2px\]{--tw-translate-y:2px;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.-skew-y-\[-2deg\]{--tw-skew-y:2deg;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes marquee{0%{transform:translateX(0%)}100%{transform:translateX(-50%)}}.animate-marquee{animation:marquee 30s linear infinite}.cursor-pointer{cursor:pointer}.select-none{-webkit-user-select:none;user-select:none}.resize-none{resize:none}.list-inside{list-style-position:inside}.list-disc{list-style-type:disc}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.flex-row{flex-direction:row}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-end{align-items:flex-end}.items-center{align-items:center}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.justify-items-center{justify-items:center}.gap-1{gap:0.25rem}.gap-12{gap:3rem}.gap-16{gap:4rem}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.gap-x-10{column-gap:2.5rem}.gap-y-16{row-gap:4rem}.gap-y-8{row-gap:2rem}.space-x-4 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1rem * var(--tw-space-x-reverse));margin-left:calc(1rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-8 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(2rem * var(--tw-space-x-reverse));margin-left:calc(2rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.25rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-x-hidden{overflow-x:hidden}.whitespace-nowrap{white-space:nowrap}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-sm{border-radius:0.125rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-4{border-width:4px}.border-y{border-top-width:1px;border-bottom-width:1px}.border-b{border-bottom-width:1px}.border-l{border-left-width:1px}.border-r{border-right-width:1px}.border-t{border-top-width:1px}.border-black\/20{border-color:rgb(0 0 0 / 0.2)}.border-gray-700{--tw-border-opacity:1;border-color:rgb(55 65 81 / var(--tw-border-opacity, 1))}.border-gray-800{--tw-border-opacity:1;border-color:rgb(31 41 55 / var(--tw-border-opacity, 1))}.border-neutral-700{--tw-border-opacity:1;border-color:rgb(64 64 64 / var(--tw-border-opacity, 1))}.border-neutral-800{--tw-border-opacity:1;border-color:rgb(38 38 38 / var(--tw-border-opacity, 1))}.border-neutral-900{--tw-border-opacity:1;border-color:rgb(23 23 23 / var(--tw-border-opacity, 1))}.border-white{--tw-border-opacity:1;border-color:rgb(255 255 255 / var(--tw-border-opacity, 1))}.border-white\/10{border-color:rgb(255 255 255 / 0.1)}.border-white\/20{border-color:rgb(255 255 255 / 0.2)}.bg-\[\#D32F2F\]\/70{background-color:rgb(211 47 47 / 0.7)}.bg-amber-500{--tw-bg-opacity:1;background-color:rgb(245 158 11 / var(--tw-bg-opacity, 1))}.bg-amber-500\/20{background-color:rgb(245 158 11 / 0.2)}.bg-amber-500\/30{background-color:rgb(245 158 11 / 0.3)}.bg-black{--tw-bg-opacity:1;background-color:rgb(0 0 0 / var(--tw-bg-opacity, 1))}.bg-black\/20{background-color:rgb(0 0 0 / 0.2)}.bg-black\/40{background-color:rgb(0 0 0 / 0.4)}.bg-blue-900{--tw-bg-opacity:1;background-color:rgb(30 58 138 / var(--tw-bg-opacity, 1))}.bg-gray-800{--tw-bg-opacity:1;background-color:rgb(31 41 55 / var(--tw-bg-opacity, 1))}.bg-gray-900{--tw-bg-opacity:1;background-color:rgb(17 24 39 / var(--tw-bg-opacity, 1))}.bg-lime-400{--tw-bg-opacity:1;background-color:rgb(163 230 53 / var(--tw-bg-opacity, 1))}.bg-neutral-800{--tw-bg-opacity:1;background-color:rgb(38 38 38 / var(--tw-bg-opacity, 1))}.bg-neutral-900{--tw-bg-opacity:1;background-color:rgb(23 23 23 / var(--tw-bg-opacity, 1))}.bg-neutral-900\/50{background-color:rgb(23 23 23 / 0.5)}.bg-neutral-950{--tw-bg-opacity:1;background-color:rgb(10 10 10 / var(--tw-bg-opacity, 1))}.bg-neutral-950\/80{background-color:rgb(10 10 10 / 0.8)}.bg-red-700{--tw-bg-opacity:1;background-color:rgb(185 28 28 / var(--tw-bg-opacity, 1))}.bg-sky-400{--tw-bg-opacity:1;background-color:rgb(56 189 248 / var(--tw-bg-opacity, 1))}.bg-transparent{background-color:transparent}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/10{background-color:rgb(255 255 255 / 0.1)}.bg-\[url\(\'\/static\/images\/3693534c-2f46-4bff-9c12-577579c96207\.jpg\'\)\]{background-image:url('/static/images/3693534c-2f46-4bff-9c12-577579c96207.jpg')}.bg-gradient-to-br{background-image:linear-gradient(to bottom right, var(--tw-gradient-stops))}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.bg-gradient-to-t{background-image:linear-gradient(to top, var(--tw-gradient-stops))}.from-black\/60{--tw-gradient-from:rgb(0 0 0 / 0.6) var(--tw-gradient-from-position);--tw-gradient-to:rgb(0 0 0 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-black\/90{--tw-gradient-from:rgb(0 0 0 / 0.9) var(--tw-gradient-from-position);--tw-gradient-to:rgb(0 0 0 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-gray-900{--tw-gradient-from:#111827 var(--tw-gradient-from-position);--tw-gradient-to:rgb(17 24 39 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-neutral-200{--tw-gradient-from:#e5e5e5 var(--tw-gradient-from-position);--tw-gradient-to:rgb(229 229 229 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.to-black{--tw-gradient-to:#000 var(--tw-gradient-to-position)}.to-neutral-600{--tw-gradient-to:#525252 var(--tw-gradient-to-position)}.to-transparent{--tw-gradient-to:transparent var(--tw-gradient-to-position)}.bg-cover{background-size:cover}.bg-clip-text{-webkit-background-clip:text;background-clip:text}.bg-center{background-position:center}.bg-no-repeat{background-repeat:no-repeat}.fill-current{fill:currentColor}.object-cover{object-fit:cover}.p-16{padding:4rem}.p-3{padding:0.75rem}.p-4{padding:1rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.px-10{padding-left:2.5rem;padding-right:2.5rem}.px-12{padding-left:3rem;padding-right:3rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-20{padding-left:5rem;padding-right:5rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-20{padding-top:5rem;padding-bottom:5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.pb-1{padding-bottom:0.25rem}.pb-10{padding-bottom:2.5rem}.pb-2{padding-bottom:0.5rem}.pb-20{padding-bottom:5rem}.pl-1{padding-left:0.25rem}.pt-10{padding-top:2.5rem}.pt-20{padding-top:5rem}.pt-6{padding-top:1.5rem}.pt-8{padding-top:2rem}.pt-\[10vw\]{padding-top:10vw}.pt-\[5\.8vw\]{padding-top:5.8vw}.font-sans{font-family:Inter, system-ui}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-5xl{font-size:3rem;line-height:1}.text-7xl{font-size:4.5rem;line-height:1}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-black{font-weight:900}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.italic{font-style:italic}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.tracking-tight{letter-spacing:-0.025em}.tracking-tighter{letter-spacing:-0.05em}.tracking-wider{letter-spacing:0.05em}.tracking-widest{letter-spacing:0.1em}.text-amber-400{--tw-text-opacity:1;color:rgb(251 191 36 / var(--tw-text-opacity, 1))}.text-amber-500{--tw-text-opacity:1;color:rgb(245 158 11 / var(--tw-text-opacity, 1))}.text-black{--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity, 1))}.text-blue-600{--tw-text-opacity:1;color:rgb(37 99 235 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity, 1))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.text-neutral-200{--tw-text-opacity:1;color:rgb(229 229 229 / var(--tw-text-opacity, 1))}.text-neutral-300{--tw-text-opacity:1;color:rgb(212 212 212 / var(--tw-text-opacity, 1))}.text-neutral-400{--tw-text-opacity:1;color:rgb(163 163 163 / var(--tw-text-opacity, 1))}.text-neutral-500{--tw-text-opacity:1;color:rgb(115 115 115 / var(--tw-text-opacity, 1))}.text-neutral-600{--tw-text-opacity:1;color:rgb(82 82 82 / var(--tw-text-opacity, 1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105 / var(--tw-text-opacity, 1))}.text-slate-700\/70{color:rgb(51 65 85 / 0.7)}.text-slate-800{--tw-text-opacity:1;color:rgb(30 41 59 / var(--tw-text-opacity, 1))}.text-transparent{color:transparent}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-white\/50{color:rgb(255 255 255 / 0.5)}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.decoration-neutral-500{-webkit-text-decoration-color:#737373;text-decoration-color:#737373}.decoration-neutral-700{-webkit-text-decoration-color:#404040;text-decoration-color:#404040}.decoration-white{-webkit-text-decoration-color:#fff;text-decoration-color:#fff}.decoration-2{text-decoration-thickness:2px}.underline-offset-2{text-underline-offset:2px}.underline-offset-4{text-underline-offset:4px}.underline-offset-8{text-underline-offset:8px}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.placeholder-neutral-600::placeholder{--tw-placeholder-opacity:1;color:rgb(82 82 82 / var(--tw-placeholder-opacity, 1))}.opacity-0{opacity:0}.opacity-50{opacity:0.5}.opacity-80{opacity:0.8}.opacity-90{opacity:0.9}.opacity-\[0\.06\]{opacity:0.06}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.outline-none{outline:2px solid transparent;outline-offset:2px}.blur-\[80px\]{--tw-blur:blur(80px);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.grayscale{--tw-grayscale:grayscale(100%);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-xl{--tw-backdrop-blur:blur(24px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-\[flex\]{transition-property:flex;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.delay-100{transition-delay:100ms}.duration-300{transition-duration:300ms}.duration-500{transition-duration:500ms}.duration-700{transition-duration:700ms}.ease-\[cubic-bezier\(0\.25\2c 1\2c 0\.5\2c 1\)\]{transition-timing-function:cubic-bezier(0.25,1,0.5,1)}.ease-in-out{transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1)}.\[mask-image\:linear-gradient\(to_bottom\2c black\2c transparent_80\%\2c black\)\]{-webkit-mask-image:linear-gradient(to bottom,black,transparent 80%,black);mask-image:linear-gradient(to bottom,black,transparent 80%,black)}.focus-within\:border-white:focus-within{--tw-border-opacity:1;border-color:rgb(255 255 255 / var(--tw-border-opacity, 1))}.hover\:flex-\[3\]:hover{flex:3}.hover\:-translate-y-1:hover{--tw-translate-y:-0.25rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:scale-105:hover{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:bg-amber-400:hover{--tw-bg-opacity:1;background-color:rgb(251 191 36 / var(--tw-bg-opacity, 1))}.hover\:bg-gray-200:hover{--tw-bg-opacity:1;background-color:rgb(229 231 235 / var(--tw-bg-opacity, 1))}.hover\:bg-neutral-200:hover{--tw-bg-opacity:1;background-color:rgb(229 229 229 / var(--tw-bg-opacity, 1))}.hover\:bg-neutral-900:hover{--tw-bg-opacity:1;background-color:rgb(23 23 23 / var(--tw-bg-opacity, 1))}.hover\:bg-white\/20:hover{background-color:rgb(255 255 255 / 0.2)}.hover\:text-black:hover{--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity, 1))}.hover\:text-neutral-300:hover{--tw-text-opacity:1;color:rgb(212 212 212 / var(--tw-text-opacity, 1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.hover\:decoration-white:hover{-webkit-text-decoration-color:#fff;text-decoration-color:#fff}.hover\:shadow-\[0_0_30px_-15px_rgba\(245\2c 158\2c 11\2c 0\.15\)\]:hover{--tw-shadow:0 0 30px -15px rgba(245,158,11,0.15);--tw-shadow-colored:0 0 30px -15px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.hover\:shadow-\[0_0_30px_-5px_rgba\(245\2c 158\2c 11\2c 0\.6\)\]:hover{--tw-shadow:0 0 30px -5px rgba(245,158,11,0.6);--tw-shadow-colored:0 0 30px -5px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.focus\:border-amber-500:focus{--tw-border-opacity:1;border-color:rgb(245 158 11 / var(--tw-border-opacity, 1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.focus\:ring-1:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.focus\:ring-amber-500:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(245 158 11 / var(--tw-ring-opacity, 1))}.group:hover .group-hover\:visible{visibility:visible}.group:hover .group-hover\:translate-x-1{--tw-translate-x:0.25rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:translate-y-0{--tw-translate-y:0px;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:scale-105{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:scale-110{--tw-scale-x:1.1;--tw-scale-y:1.1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:scale-\[1\.02\]{--tw-scale-x:1.02;--tw-scale-y:1.02;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:border-amber-500\/50{border-color:rgb(245 158 11 / 0.5)}.group:hover .group-hover\:border-neutral-700{--tw-border-opacity:1;border-color:rgb(64 64 64 / var(--tw-border-opacity, 1))}.group:hover .group-hover\:bg-transparent{background-color:transparent}.group:hover .group-hover\:text-amber-500{--tw-text-opacity:1;color:rgb(245 158 11 / var(--tw-text-opacity, 1))}.group:hover .group-hover\:underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.group:hover .group-hover\:opacity-0{opacity:0}.group:hover .group-hover\:opacity-100{opacity:1}.group:hover .group-hover\:grayscale-0{--tw-grayscale:grayscale(0);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}@media (min-width: 768px){.md\:order-1{order:1}.md\:order-3{order:3}.md\:mt-0{margin-top:0px}.md\:block{display:block}.md\:flex{display:flex}.md\:inline-flex{display:inline-flex}.md\:hidden{display:none}.md\:h-\[500px\]{height:500px}.md\:-rotate-90{--tw-rotate:-90deg;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.md\:grid-cols-\[1fr_auto_1fr\]{grid-template-columns:1fr auto 1fr}.md\:flex-row{flex-direction:row}.md\:gap-x-12{column-gap:3rem}.md\:text-center{text-align:center}.md\:text-right{text-align:right}.md\:text-4xl{font-size:2.25rem;line-height:2.5rem}.md\:text-5xl{font-size:3rem;line-height:1}.md\:text-6xl{font-size:3.75rem;line-height:1}.md\:text-7xl{font-size:4.5rem;line-height:1}.md\:text-8xl{font-size:6rem;line-height:1}}@media (min-width: 1024px){.lg\:order-1{order:1}.lg\:order-2{order:2}.lg\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}}</style></head>
+
+<body class="bg-gradient-to-br from-gray-900 to-black overflow-x-hidden min-h-screen flex flex-col antialiased text-slate-800" __processed_c458487e-cc94-4251-8aad-a7599af8a79b__="true" bis_register="W3sibWFzdGVyIjp0cnVlLCJleHRlbnNpb25JZCI6ImVwcGlvY2VtaG1ubGJoanBsY2drb2ZjaWllZ29tY29uIiwiYWRibG9ja2VyU3RhdHVzIjp7IkRJU1BMQVkiOiJlbmFibGVkIiwiRkFDRUJPT0siOiJlbmFibGVkIiwiVFdJVFRFUiI6ImVuYWJsZWQiLCJSRURESVQiOiJlbmFibGVkIiwiUElOVEVSRVNUIjoiZW5hYmxlZCIsIklOU1RBR1JBTSI6ImVuYWJsZWQiLCJUSUtUT0siOiJkaXNhYmxlZCIsIkxJTktFRElOIjoiZW5hYmxlZCIsIkNPTkZJRyI6ImRpc2FibGVkIn0sInZlcnNpb24iOiIyLjAuMzgiLCJzY29yZSI6MjAwMzgwfV0=">
+    <div class="relative bg-neutral-950" bis_skin_checked="1">
+    <div class="absolute inset-0
+            bg-[url('assets/3693534c-2f46-4bff-9c12-577579c96207.jpg')]
+            opacity-[0.06] pointer-events-none
+            bg-no-repeat bg-cover bg-center
+            [mask-image:linear-gradient(to_bottom,black,transparent_80%,black)]" bis_skin_checked="1">
+    </div>
+
+    
+<nav class="fixed top-0 left-0 w-full z-50 bg-neutral-950/80 backdrop-blur-md border-b border-neutral-800">
+    <div class="container mx-auto px-20 h-[6vw] flex items-center justify-between" bis_skin_checked="1">
+        <a href="/" class="text-2xl font-bold tracking-tighter text-white">
+            WAYAE. AUTO
+        </a>
+
+        
+        <div class="hidden md:flex items-center space-x-8" bis_skin_checked="1">
+            
+            
+            
+            <a href="#about" class="text-sm font-medium text-neutral-400 hover:text-white transition-colors duration-300" bis_skin_checked="1">
+                About
+            </a>
+            
+            <a href="#services" class="text-sm font-medium text-neutral-400 hover:text-white transition-colors duration-300" bis_skin_checked="1">
+                Services
+            </a>
+            
+            <a href="#process" class="text-sm font-medium text-neutral-400 hover:text-white transition-colors duration-300" bis_skin_checked="1">
+                Process
+            </a>
+            
+            <a href="#gallery" class="text-sm font-medium text-neutral-400 hover:text-white transition-colors duration-300" bis_skin_checked="1">
+                Gallery
+            </a>
+            
+            <a href="#testimonials" class="text-sm font-medium text-neutral-400 hover:text-white transition-colors duration-300" bis_skin_checked="1">
+                Testimonials
+            </a>
+            
+            <a href="#contact" class="text-sm font-medium text-neutral-400 hover:text-white transition-colors duration-300" bis_skin_checked="1">
+                Contact
+            </a>
+            
+        </div>
+
+        <div class="flex items-center space-x-4" bis_skin_checked="1">
+            
+            <a href="/auth" class="hidden md:inline-flex items-center justify-center px-5 py-2 text-sm font-medium text-black bg-white rounded-full hover:bg-neutral-200 transition-all duration-300" bis_skin_checked="1">
+                Book a call
+            </a>
+            
+            
+            <button class="md:hidden text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+        
+    </div>
+</nav>
+
+
+    <main class="flex-grow w-full relative pt-[5.8vw] px-10">
+    
+
+<header class="container mx-auto pt-[10vw] pb-20">
+    <h1 class="text-5xl md:text-8xl font-bold font-sans leading-tight mb-8 text-shadow-white text-shadow-lg">
+        We deliver 
+        <span class="text-rotate text-7xl">
+            <span class="justify-items-center">
+                <span class="bg-lime-400 text-white px-2 underline underline-offset-2 decoration-white decoration-2">RESULTS</span>
+                <span class="bg-amber-500 text-white px-2 underline underline-offset-2 decoration-white decoration-2">ENGINES</span>
+                <span class="bg-sky-400 text-white px-2 underline underline-offset-2 decoration-white decoration-2">QUALITY</span>
+                <span class="bg-red-700 text-white px-2 underline underline-offset-2 decoration-white decoration-2">SPEEDS</span>
+            </span>
+        </span> <br>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-neutral-200 to-neutral-600">
+            solutions for impact.
+        </span>
+    </h1>
+    <p class="text-xl text-neutral-400 max-w-2xl">
+        Professional automotive service with precise work, fast handling, and reliable results.
+    </p>
+    <a href="/booking" bis_skin_checked="1">
+        <button class="mt-8 px-8 py-4 bg-white text-black font-bold rounded-full hover:bg-gray-200 transition-colors">
+            Get Started
+        </button>
+    </a>
+</header>
+
+<section class="relative py-20 overflow-hidden" id="about">
+
+    <div class="container mx-auto px-8 relative z-10 bg-gray-900 rounded-xl p-16" bis_skin_checked="1">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center" bis_skin_checked="1">
+            
+            <div class="order-2 lg:order-1" bis_skin_checked="1">
+                <span class="text-gray-600 font-bold uppercase tracking-widest text-sm mb-2 block">
+                    About Us
+                </span>
+                
+                <h2 class="text-3xl text-amber-500 md:text-5xl font-extrabold mb-6 leading-tight">
+                    Driven by Experience <br>
+                    <span class="relative inline-block">
+                        <div class="relative inline-block px-12 pl-1 py-2" bis_skin_checked="1">
+                            <div class="relative inline-block px-8 py-2" bis_skin_checked="1">
+                            <span class="relative z-20 font-bold italic text-gray-700">
+                                Where Your Vehicle Matters
+                            </span>
+
+                            <span class="absolute inset-0 bg-[#D32F2F]/70 -skew-y-[-2deg] transform translate-y-[2px] rounded-sm z-0">
+                                
+                                <span class="absolute left-0 top-0 bottom-0 w-3 border-r border-black/20" style="background-image: conic-gradient(#000 0.25turn, #fff 0.25turn 0.5turn, #000 0.5turn 0.75turn, #fff 0.75turn); background-size: 12px 12px;">
+                                </span>
+
+                                <span class="absolute right-0 top-0 bottom-0 w-3 border-l border-black/20" style="background-image: conic-gradient(#000 0.25turn, #fff 0.25turn 0.5turn, #000 0.5turn 0.75turn, #fff 0.75turn); background-size: 12px 12px;">
+                                </span>
+                                
+                            </span>
+                            </div>
+                        </div>
+                    </span>
+                </h2>
+
+                <p class="text-slate-600 text-lg mb-6 leading-relaxed">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.
+                </p>
+
+                <p class="text-slate-600 mb-8 leading-relaxed">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque dignissimos recusandae adipisci, consequatur eaque quia laudantium sit eveniet? Deserunt, facere nesciunt inventore veritatis qui praesentium eaque doloribus alias ducimus similique.
+                </p>
+
+            </div>
+
+            <div class="order-1 lg:order-2 relative" bis_skin_checked="1">
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-gray-800 z-20" bis_skin_checked="1">
+                    <img src="assets/logan-meis-7qLT-Msda1k-unsplash.jpg" alt="Badminton Court" class="w-full h-auto object-cover transform hover:scale-105 transition duration-700">
+                </div>
+
+                <div class="absolute -bottom-6 -right-6 w-full h-full bg-gray-800 rounded-2xl -z-10 hidden md:block" bis_skin_checked="1"></div>
+                <div class="absolute -top-6 -left-6 w-24 h-24 bg-dots-pattern opacity-50 hidden md:block" bis_skin_checked="1"></div>
+
+                <div class="absolute -bottom-10 left-6 bg-gray-900 p-4 rounded-xl shadow-xl z-30 flex items-center gap-4 animate-bounce-slow hidden md:flex border border-gray-700" bis_skin_checked="1">
+                    <div class="bg-blue-900 p-3 rounded-full text-blue-600 h-12 w-12" bis_skin_checked="1">
+                        <i class="fas fa-users text-xl"></i>
+                    </div>
+                    <div bis_skin_checked="1">
+                        <p class="text-xs text-gray-500 font-bold uppercase">Success Stories</p>
+                        <p class="text-2xl font-black text-slate-700/70">100+</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="mt-10" bis_skin_checked="1">
+        
+<div class="relative flex overflow-hidden w-full py-4 border-y border-neutral-800 select-none" bis_skin_checked="1">
+    
+    <div class="flex gap-2" bis_skin_checked="1">
+        
+        
+        <div class="animate-marquee flex w-[60%] items-center justify-between gap-2 flex-shrink-0" bis_skin_checked="1">
+            
+                <span class="text-2xl md:text-7xl font-bold uppercase whitespace-nowrap px-4
+                    
+                        text-transparent border-white stroke-text-tailwind
+                    ">
+                    /PRECISION JOB
+                </span>
+                <span class="text-3xl text-neutral-600">•</span>
+            
+                <span class="text-2xl md:text-7xl font-bold uppercase whitespace-nowrap px-4
+                    
+                        text-transparent border-white stroke-text-tailwind
+                    ">
+                    /HIGH SPEED SERVICE
+                </span>
+                <span class="text-3xl text-neutral-600">•</span>
+            
+                <span class="text-2xl md:text-7xl font-bold uppercase whitespace-nowrap px-4
+                    
+                        text-transparent border-white stroke-text-tailwind
+                    ">
+                    /QUALITY WORKMANSHIP
+                </span>
+                <span class="text-3xl text-neutral-600">•</span>
+            
+                <span class="text-2xl md:text-7xl font-bold uppercase whitespace-nowrap px-4
+                    
+                        text-transparent border-white stroke-text-tailwind
+                    ">
+                    /RELIABLE RESULTS
+                </span>
+                <span class="text-3xl text-neutral-600">•</span>
+            
+                <span class="text-2xl md:text-7xl font-bold uppercase whitespace-nowrap px-4
+                    
+                        text-transparent border-white stroke-text-tailwind
+                    ">
+                    /TRACK READY
+                </span>
+                <span class="text-3xl text-neutral-600">•</span>
+            
+                <span class="text-2xl md:text-7xl font-bold uppercase whitespace-nowrap px-4
+                    
+                        text-transparent border-white stroke-text-tailwind
+                    ">
+                    /PROVEN EXPERTISE
+                </span>
+                <span class="text-3xl text-neutral-600">•</span>
+            
+        </div>
+
+        
+        <div class="animate-marquee flex w-[60%] items-center justify-between gap-2 flex-shrink-0" aria-hidden="true" bis_skin_checked="1">
+            
+                <span class="text-2xl md:text-7xl font-bold uppercase whitespace-nowrap px-4
+                    
+                        text-transparent stroke-text-tailwind
+                    ">
+                    /PRECISION JOB
+                </span>
+                <span class="text-3xl text-neutral-600">•</span>
+            
+                <span class="text-2xl md:text-7xl font-bold uppercase whitespace-nowrap px-4
+                    
+                        text-transparent stroke-text-tailwind
+                    ">
+                    /HIGH SPEED SERVICE
+                </span>
+                <span class="text-3xl text-neutral-600">•</span>
+            
+                <span class="text-2xl md:text-7xl font-bold uppercase whitespace-nowrap px-4
+                    
+                        text-transparent stroke-text-tailwind
+                    ">
+                    /QUALITY WORKMANSHIP
+                </span>
+                <span class="text-3xl text-neutral-600">•</span>
+            
+                <span class="text-2xl md:text-7xl font-bold uppercase whitespace-nowrap px-4
+                    
+                        text-transparent stroke-text-tailwind
+                    ">
+                    /RELIABLE RESULTS
+                </span>
+                <span class="text-3xl text-neutral-600">•</span>
+            
+                <span class="text-2xl md:text-7xl font-bold uppercase whitespace-nowrap px-4
+                    
+                        text-transparent stroke-text-tailwind
+                    ">
+                    /TRACK READY
+                </span>
+                <span class="text-3xl text-neutral-600">•</span>
+            
+                <span class="text-2xl md:text-7xl font-bold uppercase whitespace-nowrap px-4
+                    
+                        text-transparent stroke-text-tailwind
+                    ">
+                    /PROVEN EXPERTISE
+                </span>
+                <span class="text-3xl text-neutral-600">•</span>
+            
+        </div>
+
+    </div>
+</div>
+
+
+
+<style>
+    .stroke-text-tailwind {
+        -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
+    }
+</style>
+
+
+
+    </div>
+</section>
+
+<section id="services" class="py-20 border-t border-neutral-900">
+    <div class="container mx-auto px-6" bis_skin_checked="1">
+        <div class="flex justify-between items-end mb-16" bis_skin_checked="1">
+            <h2 class="text-3xl font-bold text-amber-500">Our Services</h2>
+            <a href="#" class="text-sm border-b border-white pb-1">All Services</a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-16" bis_skin_checked="1">
+            
+            <a href="#">
+            
+<div class="group relative flex flex-col gap-4" bis_skin_checked="1">
+    <div class="relative overflow-hidden rounded-2xl aspect-[4/3] bg-neutral-900" bis_skin_checked="1">
+        <img src="assets/logan-meis-7qLT-Msda1k-unsplash.jpg" alt="Routine Services" class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700 ease-in-out opacity-90 group-hover:opacity-100">
+        
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-700 bg-black/20 ease-in-out" bis_skin_checked="1">
+            <div class="px-6 py-3 bg-white/10 backdrop-blur-md rounded-full text-white border border-white/20 transition-all duration-500 hover:bg-white/20 hover:text-black" bis_skin_checked="1">
+                Click to view
+            </div>
+        </div>
+    </div>
+
+    <div class="flex flex-col gap-2 mt-2" bis_skin_checked="1">
+        <div class="flex justify-between items-start" bis_skin_checked="1">
+            <h3 class="text-2xl font-semibold text-white group-hover:underline decoration-neutral-500 underline-offset-4">Routine Services</h3>
+            <div class="flex flex-wrap gap-2 justify-end" bis_skin_checked="1">
+                
+                <span class="px-2 py-1 text-xs border border-neutral-700 rounded-full text-neutral-400">
+                    Oil Change
+                </span>
+                
+                <span class="px-2 py-1 text-xs border border-neutral-700 rounded-full text-neutral-400">
+                    General Check
+                </span>
+                
+                <span class="px-2 py-1 text-xs border border-neutral-700 rounded-full text-neutral-400">
+                    Tune Up
+                </span>
+                
+                <span class="px-2 py-1 text-xs border border-neutral-700 rounded-full text-neutral-400">
+                    Brake Check
+                </span>
+                
+                <span class="px-2 py-1 text-xs border border-neutral-700 rounded-full text-neutral-400">
+                    Fluid Check &amp; Top Up
+                </span>
+                
+            </div>
+        </div>
+        <p class="text-neutral-400 text-sm leading-relaxed line-clamp-2">
+            Regular maintenance to keep your vehicle reliable and performing at its best for daily use. Includes basic inspections, oil changes, and minor adjustments to prevent issues before they become major problems.
+        </p>
+    </div>
+</div>
+
+            </a>
+
+            <a href="#">
+            
+<div class="group relative flex flex-col gap-4" bis_skin_checked="1">
+    <div class="relative overflow-hidden rounded-2xl aspect-[4/3] bg-neutral-900" bis_skin_checked="1">
+        <img src="assets/logan-meis-7qLT-Msda1k-unsplash.jpg" alt="Engine &amp; Performance" class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700 ease-in-out opacity-90 group-hover:opacity-100">
+        
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-700 bg-black/20 ease-in-out" bis_skin_checked="1">
+            <div class="px-6 py-3 bg-white/10 backdrop-blur-md rounded-full text-white border border-white/20 transition-all duration-500 hover:bg-white/20 hover:text-black" bis_skin_checked="1">
+                Click to view
+            </div>
+        </div>
+    </div>
+
+    <div class="flex flex-col gap-2 mt-2" bis_skin_checked="1">
+        <div class="flex justify-between items-start" bis_skin_checked="1">
+            <h3 class="text-2xl font-semibold text-white group-hover:underline decoration-neutral-500 underline-offset-4">Engine &amp; Performance</h3>
+            <div class="flex flex-wrap gap-2 justify-end" bis_skin_checked="1">
+                
+                <span class="px-2 py-1 text-xs border border-neutral-700 rounded-full text-neutral-400">
+                    Engine Repair
+                </span>
+                
+                <span class="px-2 py-1 text-xs border border-neutral-700 rounded-full text-neutral-400">
+                    Overhaul
+                </span>
+                
+                <span class="px-2 py-1 text-xs border border-neutral-700 rounded-full text-neutral-400">
+                    Compression Check
+                </span>
+                
+                <span class="px-2 py-1 text-xs border border-neutral-700 rounded-full text-neutral-400">
+                    Performance Setup
+                </span>
+                
+                <span class="px-2 py-1 text-xs border border-neutral-700 rounded-full text-neutral-400">
+                    ECU / Injection Check
+                </span>
+                
+            </div>
+        </div>
+        <p class="text-neutral-400 text-sm leading-relaxed line-clamp-2">
+            Services focused on engine health and performance optimization. From diagnostics and repairs to tuning and performance setup, tailored for both daily driving and high-performance needs.
+        </p>
+    </div>
+</div>
+
+            </a>
+
+            <a href="#">
+            
+<div class="group relative flex flex-col gap-4" bis_skin_checked="1">
+    <div class="relative overflow-hidden rounded-2xl aspect-[4/3] bg-neutral-900" bis_skin_checked="1">
+        <img src="assets/logan-meis-7qLT-Msda1k-unsplash.jpg" alt="Suspension &amp; Brake" class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700 ease-in-out opacity-90 group-hover:opacity-100">
+        
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-700 bg-black/20 ease-in-out" bis_skin_checked="1">
+            <div class="px-6 py-3 bg-white/10 backdrop-blur-md rounded-full text-white border border-white/20 transition-all duration-500 hover:bg-white/20 hover:text-black" bis_skin_checked="1">
+                Click to view
+            </div>
+        </div>
+    </div>
+
+    <div class="flex flex-col gap-2 mt-2" bis_skin_checked="1">
+        <div class="flex justify-between items-start" bis_skin_checked="1">
+            <h3 class="text-2xl font-semibold text-white group-hover:underline decoration-neutral-500 underline-offset-4">Suspension &amp; Brake</h3>
+            <div class="flex flex-wrap gap-2 justify-end" bis_skin_checked="1">
+                
+                <span class="px-2 py-1 text-xs border border-neutral-700 rounded-full text-neutral-400">
+                    Steering Check &amp; Adjustment
+                </span>
+                
+                <span class="px-2 py-1 text-xs border border-neutral-700 rounded-full text-neutral-400">
+                    Brake Check &amp; Replacement
+                </span>
+                
+                <span class="px-2 py-1 text-xs border border-neutral-700 rounded-full text-neutral-400">
+                    Suspension Check &amp; Adjustment
+                </span>
+                
+                <span class="px-2 py-1 text-xs border border-neutral-700 rounded-full text-neutral-400">
+                    Suspension Setup
+                </span>
+                
+                <span class="px-2 py-1 text-xs border border-neutral-700 rounded-full text-neutral-400">
+                    Suspension &amp; Brake Setup
+                </span>
+                
+            </div>
+        </div>
+        <p class="text-neutral-400 text-sm leading-relaxed line-clamp-2">
+            Inspection, repair, and setup of suspension and braking systems to ensure control, comfort, and safety. Covers component checks, part replacement, and adjustments based on driving style and conditions.
+        </p>
+    </div>
+</div>
+
+            </a>
+
+            <a href="#">
+            
+<div class="group relative flex flex-col gap-4" bis_skin_checked="1">
+    <div class="relative overflow-hidden rounded-2xl aspect-[4/3] bg-neutral-900" bis_skin_checked="1">
+        <img src="assets/logan-meis-7qLT-Msda1k-unsplash.jpg" alt="Custom &amp; Special Service" class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700 ease-in-out opacity-90 group-hover:opacity-100">
+        
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-700 bg-black/20 ease-in-out" bis_skin_checked="1">
+            <div class="px-6 py-3 bg-white/10 backdrop-blur-md rounded-full text-white border border-white/20 transition-all duration-500 hover:bg-white/20 hover:text-black" bis_skin_checked="1">
+                Click to view
+            </div>
+        </div>
+    </div>
+
+    <div class="flex flex-col gap-2 mt-2" bis_skin_checked="1">
+        <div class="flex justify-between items-start" bis_skin_checked="1">
+            <h3 class="text-2xl font-semibold text-white group-hover:underline decoration-neutral-500 underline-offset-4">Custom &amp; Special Service</h3>
+            <div class="flex flex-wrap gap-2 justify-end" bis_skin_checked="1">
+                
+                <span class="px-2 py-1 text-xs border border-neutral-700 rounded-full text-neutral-400">
+                    Performance Upgrade
+                </span>
+                
+                <span class="px-2 py-1 text-xs border border-neutral-700 rounded-full text-neutral-400">
+                    Custom Setup
+                </span>
+                
+                <span class="px-2 py-1 text-xs border border-neutral-700 rounded-full text-neutral-400">
+                    Track Preparation
+                </span>
+                
+                <span class="px-2 py-1 text-xs border border-neutral-700 rounded-full text-neutral-400">
+                    Special Project
+                </span>
+                
+            </div>
+        </div>
+        <p class="text-neutral-400 text-sm leading-relaxed line-clamp-2">
+            Specialized services designed for non-standard and project-based needs. Includes performance setups, functional modifications, and custom requests based on specific goals and vehicle usage.
+        </p>
+    </div>
+</div>
+
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<section id="process" class="py-20 border-t border-neutral-900">
+    <div class="container mx-auto px-6" bis_skin_checked="1">
+        <div class="flex justify-between items-end mb-16" bis_skin_checked="1">
+            <h2 class="text-3xl font-bold text-amber-500">Step By Step</h2>
+        </div>
+
+        
+<div class="group w-full max-w-6xl mx-auto p-6" bis_skin_checked="1">
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-y-8 md:gap-x-12 items-center" bis_skin_checked="1">
+        
+        <div class="flex flex-col gap-3 order-2 md:order-1 md:text-right" bis_skin_checked="1">
+            <h2 class="text-3xl md:text-4xl font-bold text-amber-500">Routine Services</h2>
+            <p class="text-neutral-400 text-base leading-relaxed">
+                Regular maintenance to keep your vehicle reliable and performing at its best for daily use. Includes basic inspections, oil changes, and minor adjustments to prevent issues before they become major problems.
+            </p>
+        </div>
+
+        <div class="hidden md:flex justify-center items-center h-full order-2 relative" bis_skin_checked="1">
+            <div class="w-1.5 h-80 bg-amber-500/30 relative overflow-hidden" bis_skin_checked="1">
+                <div class="absolute inset-0 bg-amber-500 w-full h-full" bis_skin_checked="1"></div>
+            </div>
+        </div>
+
+        <div class="order-3 h-full w-full" bis_skin_checked="1">
+            <div class="relative overflow-hidden rounded-lg aspect-video border border-white/10 mt-5" bis_skin_checked="1">
+                <img src="assets/logan-meis-7qLT-Msda1k-unsplash.jpg" alt="Routine Services" class="object-cover w-full h-full transform transition-transform duration-700 ease-in-out group-hover:scale-110 opacity-80 group-hover:opacity-100">
+                
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" bis_skin_checked="1"></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+        
+<div class="group w-full max-w-6xl mx-auto p-6" bis_skin_checked="1">
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-y-8 md:gap-x-12 items-center" bis_skin_checked="1">
+        
+        <div class="flex flex-col gap-3 order-2 md:order-3 md:text-right" bis_skin_checked="1">
+            <h2 class="text-3xl md:text-4xl font-bold text-amber-500">Routine Services</h2>
+            <p class="text-neutral-400 text-base leading-relaxed">
+                Regular maintenance to keep your vehicle reliable and performing at its best for daily use. Includes basic inspections, oil changes, and minor adjustments to prevent issues before they become major problems.
+            </p>
+        </div>
+
+        <div class="hidden md:flex justify-center items-center h-full order-2 relative" bis_skin_checked="1">
+            <div class="w-1.5 h-80 bg-amber-500/30 relative overflow-hidden" bis_skin_checked="1">
+                <div class="absolute inset-0 bg-amber-500 w-full h-full" bis_skin_checked="1"></div>
+            </div>
+        </div>
+
+        <div class="order-1 h-full w-full" bis_skin_checked="1">
+            <div class="relative overflow-hidden rounded-lg aspect-video border border-white/10 mt-5" bis_skin_checked="1">
+                <img src="assets/logan-meis-7qLT-Msda1k-unsplash.jpg" alt="Routine Services" class="object-cover w-full h-full transform transition-transform duration-700 ease-in-out group-hover:scale-110 opacity-80 group-hover:opacity-100">
+                
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" bis_skin_checked="1"></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+        
+<div class="group w-full max-w-6xl mx-auto p-6" bis_skin_checked="1">
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-y-8 md:gap-x-12 items-center" bis_skin_checked="1">
+        
+        <div class="flex flex-col gap-3 order-2 md:order-1 md:text-right" bis_skin_checked="1">
+            <h2 class="text-3xl md:text-4xl font-bold text-amber-500">Routine Services</h2>
+            <p class="text-neutral-400 text-base leading-relaxed">
+                Regular maintenance to keep your vehicle reliable and performing at its best for daily use. Includes basic inspections, oil changes, and minor adjustments to prevent issues before they become major problems.
+            </p>
+        </div>
+
+        <div class="hidden md:flex justify-center items-center h-full order-2 relative" bis_skin_checked="1">
+            <div class="w-1.5 h-80 bg-amber-500/30 relative overflow-hidden" bis_skin_checked="1">
+                <div class="absolute inset-0 bg-amber-500 w-full h-full" bis_skin_checked="1"></div>
+            </div>
+        </div>
+
+        <div class="order-3 h-full w-full" bis_skin_checked="1">
+            <div class="relative overflow-hidden rounded-lg aspect-video border border-white/10 mt-5" bis_skin_checked="1">
+                <img src="assets/logan-meis-7qLT-Msda1k-unsplash.jpg" alt="Routine Services" class="object-cover w-full h-full transform transition-transform duration-700 ease-in-out group-hover:scale-110 opacity-80 group-hover:opacity-100">
+                
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" bis_skin_checked="1"></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+    </div>
+</section>
+
+<section id="gallery" class="py-20 border-t border-neutral-900">
+    <div class="container mx-auto px-6" bis_skin_checked="1">
+        <div class="flex justify-between items-end mb-16" bis_skin_checked="1">
+            <h2 class="text-3xl font-bold text-amber-500">Gallery</h2>
+            <a href="#" class="text-sm border-b border-white pb-1">All Photos</a>
+        </div>
+
+        
+    <div class="flex flex-col md:flex-row gap-2 w-full h-[600px] md:h-[500px]" bis_skin_checked="1">
+
+        
+            <div class="group relative flex-1 hover:flex-[3] transition-[flex] duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden rounded-2xl cursor-pointer border border-neutral-800" bis_skin_checked="1">
+                
+                <img src="assets/logan-meis-7qLT-Msda1k-unsplash.jpg" class="absolute inset-0 w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700" alt="Our Garage">
+                
+                <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors duration-500" bis_skin_checked="1"></div>
+
+                <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/90 to-transparent translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100 z-10" bis_skin_checked="1">
+                    <span class="text-amber-500 text-xs font-bold tracking-widest uppercase mb-1 block">Our Garage</span>
+                    <h3 class="text-2xl font-bold text-white leading-tight">Our Garage</h3>
+                </div>
+
+                <div class="absolute inset-0 flex items-center justify-center group-hover:opacity-0 transition-opacity duration-300 pointer-events-none z-10" bis_skin_checked="1">
+                    <span class="md:-rotate-90 text-white/50 text-xl font-bold tracking-widest whitespace-nowrap uppercase">
+                        Our Garage
+                    </span>
+                </div>
+                
+            </div>
+        
+            <div class="group relative flex-1 hover:flex-[3] transition-[flex] duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden rounded-2xl cursor-pointer border border-neutral-800" bis_skin_checked="1">
+                
+                <img src="assets/logan-meis-7qLT-Msda1k-unsplash.jpg" class="absolute inset-0 w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700" alt="Our Stocks">
+                
+                <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors duration-500" bis_skin_checked="1"></div>
+
+                <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/90 to-transparent translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100 z-10" bis_skin_checked="1">
+                    <span class="text-amber-500 text-xs font-bold tracking-widest uppercase mb-1 block">Our Stocks</span>
+                    <h3 class="text-2xl font-bold text-white leading-tight">Our Stocks</h3>
+                </div>
+
+                <div class="absolute inset-0 flex items-center justify-center group-hover:opacity-0 transition-opacity duration-300 pointer-events-none z-10" bis_skin_checked="1">
+                    <span class="md:-rotate-90 text-white/50 text-xl font-bold tracking-widest whitespace-nowrap uppercase">
+                        Our Stocks
+                    </span>
+                </div>
+                
+            </div>
+        
+            <div class="group relative flex-1 hover:flex-[3] transition-[flex] duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden rounded-2xl cursor-pointer border border-neutral-800" bis_skin_checked="1">
+                
+                <img src="assets/logan-meis-7qLT-Msda1k-unsplash.jpg" class="absolute inset-0 w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700" alt="Our Technology">
+                
+                <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors duration-500" bis_skin_checked="1"></div>
+
+                <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/90 to-transparent translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100 z-10" bis_skin_checked="1">
+                    <span class="text-amber-500 text-xs font-bold tracking-widest uppercase mb-1 block">Our Technology</span>
+                    <h3 class="text-2xl font-bold text-white leading-tight">Our Technology</h3>
+                </div>
+
+                <div class="absolute inset-0 flex items-center justify-center group-hover:opacity-0 transition-opacity duration-300 pointer-events-none z-10" bis_skin_checked="1">
+                    <span class="md:-rotate-90 text-white/50 text-xl font-bold tracking-widest whitespace-nowrap uppercase">
+                        Our Technology
+                    </span>
+                </div>
+                
+            </div>
+        
+
+    </div>
+
+
+    </div>
+</section>
+
+<section id="testimonials" class="py-20 border-t border-neutral-900">
+    <div class="container mx-auto px-6" bis_skin_checked="1">
+        <div class="flex justify-between items-end mb-16" bis_skin_checked="1">
+            <h2 class="text-3xl font-bold text-amber-500">Testimonial</h2>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4" bis_skin_checked="1">
+        
+        <div class="mb-12 md:text-center max-w-2xl mx-auto" bis_skin_checked="1">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">What Clients Say</h2>
+            <p class="text-neutral-400">Trusted by automotive enthusiasts across the city.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6" bis_skin_checked="1">
+            
+    
+    <div class="group" bis_skin_checked="1">
+    <div class="hover-3d" bis_skin_checked="1">
+        <div class="flex flex-col justify-between p-8 rounded-2xl bg-neutral-900/50 border border-neutral-800 group-hover:border-amber-500/50 hover:bg-neutral-900 transition-all duration-300 hover:shadow-[0_0_30px_-15px_rgba(245,158,11,0.15)]" bis_skin_checked="1">
+                
+            <div bis_skin_checked="1">
+                <div class="flex gap-1 mb-6" bis_skin_checked="1">
+                    
+                    <svg class="w-5 h-5 text-amber-500 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+                    </svg>
+                    
+                    <svg class="w-5 h-5 text-amber-500 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+                    </svg>
+                    
+                    <svg class="w-5 h-5 text-amber-500 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+                    </svg>
+                    
+                    <svg class="w-5 h-5 text-amber-500 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+                    </svg>
+                    
+                    <svg class="w-5 h-5 text-amber-500 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+                    </svg>
+                    
+                </div>
+
+                <blockquote class="text-neutral-300 leading-relaxed mb-8">
+                    "Pelayanan luar biasa! Mobil saya terasa seperti baru lagi setelah detailing di sini. Sangat detail dan profesional."
+                </blockquote>
+            </div>
+
+            <div class="flex items-center gap-4 pt-6 border-t border-neutral-800 group-hover:border-neutral-700 transition-colors" bis_skin_checked="1">
+                
+                <div class="w-12 h-12 rounded-full bg-neutral-800 flex items-center justify-center overflow-hidden border border-neutral-700 group-hover:border-amber-500/50 transition-colors shrink-0" bis_skin_checked="1">
+                    
+                        <img src="assets/logan-meis-7qLT-Msda1k-unsplash.jpg" alt="Budi Santoso" class="w-full h-full object-cover">
+                    
+                </div>
+
+                <div bis_skin_checked="1">
+                    <h4 class="text-white font-bold text-base group-hover:text-amber-500 transition-colors">Budi Santoso</h4>
+                    <p class="text-neutral-500 text-sm">Car Enthusiast</p>
+                </div>
+            </div>
+
+        </div>
+        <!-- 8 empty divs needed for the 3D effect -->
+        <div bis_skin_checked="1"></div>
+        <div bis_skin_checked="1"></div>
+        <div bis_skin_checked="1"></div>
+        <div bis_skin_checked="1"></div>
+        <div bis_skin_checked="1"></div>
+        <div bis_skin_checked="1"></div>
+        <div bis_skin_checked="1"></div>
+        <div bis_skin_checked="1"></div>
+    </div>
+    </div>
+    
+    <div class="group" bis_skin_checked="1">
+    <div class="hover-3d" bis_skin_checked="1">
+        <div class="flex flex-col justify-between p-8 rounded-2xl bg-neutral-900/50 border border-neutral-800 group-hover:border-amber-500/50 hover:bg-neutral-900 transition-all duration-300 hover:shadow-[0_0_30px_-15px_rgba(245,158,11,0.15)]" bis_skin_checked="1">
+                
+            <div bis_skin_checked="1">
+                <div class="flex gap-1 mb-6" bis_skin_checked="1">
+                    
+                    <svg class="w-5 h-5 text-amber-500 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+                    </svg>
+                    
+                    <svg class="w-5 h-5 text-amber-500 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+                    </svg>
+                    
+                    <svg class="w-5 h-5 text-amber-500 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+                    </svg>
+                    
+                    <svg class="w-5 h-5 text-amber-500 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+                    </svg>
+                    
+                    <svg class="w-5 h-5 text-amber-500 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+                    </svg>
+                    
+                </div>
+
+                <blockquote class="text-neutral-300 leading-relaxed mb-8">
+                    "Sangat merekomendasikan layanan maintenance rutin mereka. Cepat, transparan harganya, dan mekaniknya ramah."
+                </blockquote>
+            </div>
+
+            <div class="flex items-center gap-4 pt-6 border-t border-neutral-800 group-hover:border-neutral-700 transition-colors" bis_skin_checked="1">
+                
+                <div class="w-12 h-12 rounded-full bg-neutral-800 flex items-center justify-center overflow-hidden border border-neutral-700 group-hover:border-amber-500/50 transition-colors shrink-0" bis_skin_checked="1">
+                    
+                        <img src="assets/logan-meis-7qLT-Msda1k-unsplash.jpg" alt="Sarah Wijaya" class="w-full h-full object-cover">
+                    
+                </div>
+
+                <div bis_skin_checked="1">
+                    <h4 class="text-white font-bold text-base group-hover:text-amber-500 transition-colors">Sarah Wijaya</h4>
+                    <p class="text-neutral-500 text-sm">Daily Commuter</p>
+                </div>
+            </div>
+
+        </div>
+        <!-- 8 empty divs needed for the 3D effect -->
+        <div bis_skin_checked="1"></div>
+        <div bis_skin_checked="1"></div>
+        <div bis_skin_checked="1"></div>
+        <div bis_skin_checked="1"></div>
+        <div bis_skin_checked="1"></div>
+        <div bis_skin_checked="1"></div>
+        <div bis_skin_checked="1"></div>
+        <div bis_skin_checked="1"></div>
+    </div>
+    </div>
+    
+    <div class="group" bis_skin_checked="1">
+    <div class="hover-3d" bis_skin_checked="1">
+        <div class="flex flex-col justify-between p-8 rounded-2xl bg-neutral-900/50 border border-neutral-800 group-hover:border-amber-500/50 hover:bg-neutral-900 transition-all duration-300 hover:shadow-[0_0_30px_-15px_rgba(245,158,11,0.15)]" bis_skin_checked="1">
+                
+            <div bis_skin_checked="1">
+                <div class="flex gap-1 mb-6" bis_skin_checked="1">
+                    
+                    <svg class="w-5 h-5 text-amber-500 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+                    </svg>
+                    
+                    <svg class="w-5 h-5 text-amber-500 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+                    </svg>
+                    
+                    <svg class="w-5 h-5 text-amber-500 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+                    </svg>
+                    
+                    <svg class="w-5 h-5 text-amber-500 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+                    </svg>
+                    
+                </div>
+
+                <blockquote class="text-neutral-300 leading-relaxed mb-8">
+                    "Hasil coating-nya gila sih, kinclong banget. Pengerjaan tepat waktu meskipun antrian cukup ramai."
+                </blockquote>
+            </div>
+
+            <div class="flex items-center gap-4 pt-6 border-t border-neutral-800 group-hover:border-neutral-700 transition-colors" bis_skin_checked="1">
+                
+                <div class="w-12 h-12 rounded-full bg-neutral-800 flex items-center justify-center overflow-hidden border border-neutral-700 group-hover:border-amber-500/50 transition-colors shrink-0" bis_skin_checked="1">
+                    
+                        <img src="assets/logan-meis-7qLT-Msda1k-unsplash.jpg" alt="Dani Pratama" class="w-full h-full object-cover">
+                    
+                </div>
+
+                <div bis_skin_checked="1">
+                    <h4 class="text-white font-bold text-base group-hover:text-amber-500 transition-colors">Dani Pratama</h4>
+                    <p class="text-neutral-500 text-sm">BMW Owner</p>
+                </div>
+            </div>
+
+        </div>
+        <!-- 8 empty divs needed for the 3D effect -->
+        <div bis_skin_checked="1"></div>
+        <div bis_skin_checked="1"></div>
+        <div bis_skin_checked="1"></div>
+        <div bis_skin_checked="1"></div>
+        <div bis_skin_checked="1"></div>
+        <div bis_skin_checked="1"></div>
+        <div bis_skin_checked="1"></div>
+        <div bis_skin_checked="1"></div>
+    </div>
+    </div>
+    
+
+        </div>
+    </div>
+</div></section>
+
+<section id="contact" class="py-20 border-t border-neutral-900">
+    <div class="container mx-auto px-6" bis_skin_checked="1">
+        <div class="flex justify-between items-end mb-16" bis_skin_checked="1">
+            <h2 class="text-3xl font-bold text-amber-500">Contact</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16" bis_skin_checked="1">
+            <div class="p-8" bis_skin_checked="1">
+                <h2 class="text-3xl font-bold text-white mb-4">Why Choose Us?</h2>
+                <ul class="list-disc list-inside text-neutral-400 space-y-3">
+                    <li>
+                        <span class="text-neutral-200 font-medium">Hands-On Experience</span><br>
+                        Every service is handled directly with care and real workshop experience.
+                    </li>
+                    <li>
+                        <span class="text-neutral-200 font-medium">Quality Parts &amp; Materials</span><br>
+                        We use reliable parts and proper materials to ensure consistent results.
+                    </li>
+                    <li>
+                        <span class="text-neutral-200 font-medium">Clear &amp; Fair Pricing</span><br>
+                        Transparent pricing with no unnecessary work or hidden costs.
+                    </li>
+                    <li>
+                        <span class="text-neutral-200 font-medium">Reliable Service &amp; Support</span><br>
+                        Focused on quality work, with support available after the service is done.
+                    </li>
+                </ul>
+                <div class="flex flex-row gap-4 mt-8" bis_skin_checked="1">
+                    <a class="text-amber-400" href="">
+                        <svg width="64px" height="64px" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M6.014 8.00613C6.12827 7.1024 7.30277 5.87414 8.23488 6.01043L8.23339 6.00894C9.14051 6.18132 9.85859 7.74261 10.2635 8.44465C10.5504 8.95402 10.3641 9.4701 10.0965 9.68787C9.7355 9.97883 9.17099 10.3803 9.28943 10.7834C9.5 11.5 12 14 13.2296 14.7107C13.695 14.9797 14.0325 14.2702 14.3207 13.9067C14.5301 13.6271 15.0466 13.46 15.5548 13.736C16.3138 14.178 17.0288 14.6917 17.69 15.27C18.0202 15.546 18.0977 15.9539 17.8689 16.385C17.4659 17.1443 16.3003 18.1456 15.4542 17.9421C13.9764 17.5868 8 15.27 6.08033 8.55801C5.97237 8.24048 5.99955 8.12044 6.014 8.00613Z" fill="currentColor"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M12 23C10.7764 23 10.0994 22.8687 9 22.5L6.89443 23.5528C5.56462 24.2177 4 23.2507 4 21.7639V19.5C1.84655 17.492 1 15.1767 1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12C23 18.0751 18.0751 23 12 23ZM6 18.6303L5.36395 18.0372C3.69087 16.4772 3 14.7331 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C11.0143 21 10.552 20.911 9.63595 20.6038L8.84847 20.3397L6 21.7639V18.6303Z" fill="currentColor"></path> </g></svg>
+                    </a>
+                    <a class="text-amber-400" href="">
+                        <svg width="64px" height="64px" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <rect x="2" y="2" width="28" height="28" rx="6" fill="currentColor"></rect> <rect x="2" y="2" width="28" height="28" rx="6" fill="currentColor"></rect> <rect x="2" y="2" width="28" height="28" rx="6" fill="currentColor"></rect> <path d="M23 10.5C23 11.3284 22.3284 12 21.5 12C20.6716 12 20 11.3284 20 10.5C20 9.67157 20.6716 9 21.5 9C22.3284 9 23 9.67157 23 10.5Z" fill="black"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M16 21C18.7614 21 21 18.7614 21 16C21 13.2386 18.7614 11 16 11C13.2386 11 11 13.2386 11 16C11 18.7614 13.2386 21 16 21ZM16 19C17.6569 19 19 17.6569 19 16C19 14.3431 17.6569 13 16 13C14.3431 13 13 14.3431 13 16C13 17.6569 14.3431 19 16 19Z" fill="black"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M6 15.6C6 12.2397 6 10.5595 6.65396 9.27606C7.2292 8.14708 8.14708 7.2292 9.27606 6.65396C10.5595 6 12.2397 6 15.6 6H16.4C19.7603 6 21.4405 6 22.7239 6.65396C23.8529 7.2292 24.7708 8.14708 25.346 9.27606C26 10.5595 26 12.2397 26 15.6V16.4C26 19.7603 26 21.4405 25.346 22.7239C24.7708 23.8529 23.8529 24.7708 22.7239 25.346C21.4405 26 19.7603 26 16.4 26H15.6C12.2397 26 10.5595 26 9.27606 25.346C8.14708 24.7708 7.2292 23.8529 6.65396 22.7239C6 21.4405 6 19.7603 6 16.4V15.6ZM15.6 8H16.4C18.1132 8 19.2777 8.00156 20.1779 8.0751C21.0548 8.14674 21.5032 8.27659 21.816 8.43597C22.5686 8.81947 23.1805 9.43139 23.564 10.184C23.7234 10.4968 23.8533 10.9452 23.9249 11.8221C23.9984 12.7223 24 13.8868 24 15.6V16.4C24 18.1132 23.9984 19.2777 23.9249 20.1779C23.8533 21.0548 23.7234 21.5032 23.564 21.816C23.1805 22.5686 22.5686 23.1805 21.816 23.564C21.5032 23.7234 21.0548 23.8533 20.1779 23.9249C19.2777 23.9984 18.1132 24 16.4 24H15.6C13.8868 24 12.7223 23.9984 11.8221 23.9249C10.9452 23.8533 10.4968 23.7234 10.184 23.564C9.43139 23.1805 8.81947 22.5686 8.43597 21.816C8.27659 21.5032 8.14674 21.0548 8.0751 20.1779C8.00156 19.2777 8 18.1132 8 16.4V15.6C8 13.8868 8.00156 12.7223 8.0751 11.8221C8.14674 10.9452 8.27659 10.4968 8.43597 10.184C8.81947 9.43139 9.43139 8.81947 10.184 8.43597C10.4968 8.27659 10.9452 8.14674 11.8221 8.0751C12.7223 8.00156 13.8868 8 15.6 8Z" fill="black"></path> <defs> <radialGradient id="paint0_radial_87_7153" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(12 23) rotate(-55.3758) scale(25.5196)"> <stop stop-color="#B13589"></stop> <stop offset="0.79309" stop-color="#C62F94"></stop> <stop offset="1" stop-color="#8A3AC8"></stop> </radialGradient> <radialGradient id="paint1_radial_87_7153" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(11 31) rotate(-65.1363) scale(22.5942)"> <stop stop-color="#E0E8B7"></stop> <stop offset="0.444662" stop-color="#FB8A2E"></stop> <stop offset="0.71474" stop-color="#E2425C"></stop> <stop offset="1" stop-color="#E2425C" stop-opacity="0"></stop> </radialGradient> <radialGradient id="paint2_radial_87_7153" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(0.500002 3) rotate(-8.1301) scale(38.8909 8.31836)"> <stop offset="0.156701" stop-color="#406ADC"></stop> <stop offset="0.467799" stop-color="#6A45BE"></stop> <stop offset="1" stop-color="#6A45BE" stop-opacity="0"></stop> </radialGradient> </defs> </g></svg>
+                    </a>
+                    <a class="text-amber-400" href="">
+                        <svg width="64px" height="64px" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M30 14.4979C30 8.15792 23.7199 3 15.9999 3C8.28094 3 2 8.15792 2 14.4979C2 20.1817 6.98063 24.9417 13.7084 25.8418C14.1644 25.9412 14.7849 26.146 14.9419 26.5404C15.0831 26.8986 15.0342 27.4598 14.987 27.8216C14.987 27.8216 14.8227 28.8214 14.7873 29.0343C14.7264 29.3926 14.5061 30.4353 15.9999 29.7981C17.4942 29.1609 24.0626 24.9935 26.9998 21.572C29.0287 19.3204 30 17.0353 30 14.4979Z" fill="currentColor"></path> <path d="M13.1553 11.4244H12.1733C12.0228 11.4244 11.9004 11.5478 11.9004 11.6995V17.866C11.9004 18.0179 12.0228 18.1411 12.1733 18.1411H13.1553C13.3059 18.1411 13.428 18.0179 13.428 17.866V11.6995C13.428 11.5478 13.3059 11.4244 13.1553 11.4244Z" fill="black"></path> <path d="M19.9147 11.4244H18.9327C18.7821 11.4244 18.66 11.5478 18.66 11.6995V15.3631L15.8645 11.5467C15.8128 11.4683 15.729 11.4295 15.6375 11.4244H14.6558C14.5052 11.4244 14.3828 11.5478 14.3828 11.6995V17.866C14.3828 18.0179 14.5052 18.1411 14.6558 18.1411H15.6375C15.7883 18.1411 15.9104 18.0179 15.9104 17.866V14.2035L18.7094 18.0247C18.7597 18.0967 18.845 18.1411 18.9327 18.1411H19.9147C20.0655 18.1411 20.1874 18.0179 20.1874 17.866V11.6995C20.1874 11.5478 20.0655 11.4244 19.9147 11.4244Z" fill="black"></path> <path d="M10.7884 16.5969H8.12013V11.6998C8.12013 11.5476 7.99802 11.4241 7.84773 11.4241H6.86545C6.71489 11.4241 6.59277 11.5476 6.59277 11.6998V17.8652C6.59277 18.0149 6.71435 18.1411 6.86518 18.1411H10.7884C10.9389 18.1411 11.0605 18.0174 11.0605 17.8652V16.8725C11.0605 16.7203 10.9389 16.5969 10.7884 16.5969Z" fill="black"></path> <path d="M25.3372 12.9683C25.4878 12.9683 25.6094 12.8452 25.6094 12.6927V11.7C25.6094 11.5478 25.4878 11.4241 25.3372 11.4241H21.4143C21.2636 11.4241 21.1416 11.5501 21.1416 11.6998V17.8655C21.1416 18.0147 21.2633 18.1411 21.4137 18.1411H25.3372C25.4878 18.1411 25.6094 18.0174 25.6094 17.8655V16.8725C25.6094 16.7206 25.4878 16.5969 25.3372 16.5969H22.6692V15.5546H25.3372C25.4878 15.5546 25.6094 15.4311 25.6094 15.2789V14.2863C25.6094 14.1341 25.4878 14.0104 25.3372 14.0104H22.6692V12.9683H25.3372Z" fill="black"></path> </g></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="relative bg-neutral-900/50 backdrop-blur-xl border border-white/10 p-8 rounded-3xl overflow-hidden group" bis_skin_checked="1">
+                
+                <div class="absolute -top-20 -right-20 w-40 h-40 bg-amber-500/20 rounded-full blur-[80px] pointer-events-none" bis_skin_checked="1"></div>
+
+                <div class="relative z-10 mb-6" bis_skin_checked="1">
+                    <h2 class="text-3xl font-bold text-white mb-2 italic">Quick Feedback</h2>
+                    <p class="text-neutral-400 text-sm">Tell us about your experience. We move fast.</p>
+                </div>
+
+                <form action="https://formspree.io/f/xeeabvqj" method="POST" class="relative z-10 space-y-5">
+                    
+                    <div class="space-y-1" bis_skin_checked="1">
+                        <label class="text-xs font-bold text-neutral-500 uppercase tracking-widest ml-1">Driver Name</label>
+                        <input type="text" name="name" required="" placeholder="Who's driving?" class="w-full bg-black/40 border border-neutral-700 text-white px-5 py-3 rounded-xl 
+                                focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 
+                                transition-all duration-300 placeholder-neutral-600">
+                    </div>
+
+                    <div class="space-y-1" bis_skin_checked="1">
+                        <label class="text-xs font-bold text-neutral-500 uppercase tracking-widest ml-1">Email</label>
+                        <input type="email" name="email" required="" placeholder="contact@racer.com" class="w-full bg-black/40 border border-neutral-700 text-white px-5 py-3 rounded-xl 
+                                focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 
+                                transition-all duration-300 placeholder-neutral-600">
+                    </div>
+
+                    <div class="space-y-1" bis_skin_checked="1">
+                        <label class="text-xs font-bold text-neutral-500 uppercase tracking-widest ml-1">Message</label>
+                        <textarea name="message" rows="3" required="" placeholder="How was the performance?" class="w-full bg-black/40 border border-neutral-700 text-white px-5 py-3 rounded-xl 
+                                focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 
+                                transition-all duration-300 placeholder-neutral-600 resize-none"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-amber-500 hover:bg-amber-400 text-black font-extrabold italic uppercase tracking-wider py-4 rounded-xl 
+                            transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_0_30px_-5px_rgba(245,158,11,0.6)]
+                            flex items-center justify-center gap-2 group-hover:scale-[1.02]">
+                        <span>Send Feedback</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    </main>
+
+    
+<footer class="bg-black text-white pt-20 pb-10 border-t border-neutral-800">
+    <div class="container mx-auto px-6" bis_skin_checked="1">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20" bis_skin_checked="1">
+            <div bis_skin_checked="1">
+                <h2 class="text-4xl md:text-6xl font-bold tracking-tight mb-6">
+                    Ready to take your <br> <span class="text-neutral-500">vehicle with us?</span>
+                </h2>
+                <a href="mailto:hi@gmail.com" class="text-xl underline underline-offset-8 decoration-neutral-700 hover:decoration-white transition-all" bis_skin_checked="1">
+                    hi@gmail.com
+                </a>
+            </div>
+            
+            <div class="flex flex-col justify-end" bis_skin_checked="1">
+                <p class="mb-4 text-neutral-400">Subscribe to our news and updates</p>
+                <form class="flex gap-4 border-b border-neutral-700 pb-2 focus-within:border-white transition-colors">
+                    <input type="email" placeholder="Your email address" class="bg-transparent w-full outline-none text-white placeholder-neutral-600">
+                    <button type="submit" class="text-white hover:text-neutral-300">→</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20 border-t border-neutral-900 pt-10" bis_skin_checked="1">
+            <div class="flex flex-col gap-3" bis_skin_checked="1">
+                <h4 class="font-bold mb-2 text-neutral-200">Company</h4>
+                <a href="#about" class="text-neutral-500 hover:text-white transition-colors" bis_skin_checked="1">About</a>
+                <a href="#services" class="text-neutral-500 hover:text-white transition-colors" bis_skin_checked="1">Services</a>
+                <a href="#process" class="text-neutral-500 hover:text-white transition-colors" bis_skin_checked="1">Process</a>
+            </div>
+            <div class="flex flex-col gap-3" bis_skin_checked="1">
+                <h4 class="font-bold mb-2 text-neutral-200">Services</h4>
+                <a href="#" class="text-neutral-500 hover:text-white transition-colors">Routine Services</a>
+                <a href="#" class="text-neutral-500 hover:text-white transition-colors">Custom Builds</a>
+                <a href="#" class="text-neutral-500 hover:text-white transition-colors">Performance Tuning</a>
+            </div>
+            <div class="flex flex-col gap-3" bis_skin_checked="1">
+                <h4 class="font-bold mb-2 text-neutral-200">Support</h4>
+                <a href="#" class="text-neutral-500 hover:text-white transition-colors">Contact Us</a>
+                <a href="#" class="text-neutral-500 hover:text-white transition-colors">FAQ</a>
+                <a href="#" class="text-neutral-500 hover:text-white transition-colors">Privacy Policy</a>
+            </div>
+            <div class="flex flex-col gap-3" bis_skin_checked="1">
+                <h4 class="font-bold mb-2 text-neutral-200">Contacts</h4>
+                <a href="#" class="text-neutral-500 hover:text-white transition-colors">Instagram</a>
+                <a href="#" class="text-neutral-500 hover:text-white transition-colors">Tiktok</a>
+                <a href="#" class="text-neutral-500 hover:text-white transition-colors">Youtube</a>
+            </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-neutral-900 text-sm text-neutral-600" bis_skin_checked="1">
+            <p>© 2026 WAYAE. AUTO. All rights reserved.</p>
+            <div class="flex gap-6 mt-4 md:mt-0" bis_skin_checked="1">
+                <a href="#" class="hover:text-white">Privacy Policy</a>
+                <a href="#" class="hover:text-white">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    
+<script>
+    
+</script>
+
+    </div>
+
+
+</body></html>
